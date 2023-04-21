@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annoucement</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>    
+</head>
+<style>
+    .annouce{
+        width: 250px;
+        height: 200px;
+    }
+
+    .annouce-foot{
+        border:none !important;
+    }
+
+    .emailview{
+        width:266px;
+        transform: translate(-700px);
+        transition: all 0.5s;
+        /* visibility: hidden; */
+    }
+</style>
+<body>
+    
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#annoucement">
+    Annouce    
+</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="annoucement"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="annoucementLabel">
+    <div class="modal-dialog">
+      <div class="modal-content annouce-body">
+        <div class="modal-body">
+            <input type="date" class="form-control"/>
+        </div>
+        <div class="modal-body">
+            <textarea class="" style="width:450px; height: 300px;" placeholder="Annouce here..."></textarea>
+        </div>
+        <div class="modal-footer annouce-foot">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success" onclick="email()">Annouce</button>
+        </div>
+        
+        <div class="emailview">
+            <p class="text-danger">Are you sure want to send by email?</p>
+            <a href="#" class="btn btn-sm btn-success mb-2" data-bs-dismiss="modal" onclick="disapper()">OK</a>
+            <a href="#" class="btn btn-sm btn-danger mb-2" data-bs-dismiss="modal" onclick="disapper()">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <script>
+            function email(){
+                let emailview = document.querySelector('.emailview');
+                emailview.style.transform = "translate(100px)";
+                
+            }
+
+        </script>
+</body>
+</html>

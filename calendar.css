@@ -1,0 +1,103 @@
+#calendar {
+    margin-bottom: 20px;
+  }
+  
+.legend {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+#legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  }
+  
+  .legend-item {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .weekend {
+    background-color: #808B96; 
+  }
+  
+  .selected {
+    background-color: orange;  
+  }
+  
+  .comparison {
+    background-color: #7DCEA0;
+  }
+  .lostDate {
+    background-color: #E74C3C;
+  }
+.selected:hover {
+    background-color: yellowgreen;
+  }
+  
+  .fc-day:not(.selected):hover {
+    background-color: #eee;
+  }
+  
+  .fc-day:not(.selected):nth-child(7n+1),
+  .fc-day:not(.selected):nth-child(7n) {
+    background-color: #f5f5f5;
+  }
+  #calendar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .fc-view-container {
+    width: 100%;
+  }
+  
+  .fc-view {
+    width: 100%;
+  }
+  
+  .fc-scroller {
+    width: 100%;
+  }
+  
+  .fc-time-grid-container {
+    width: 100%;
+  }
+
+  /* Avoid */
+
+.avoidbox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#avoidmeat legend {
+    background-color: #808B96;
+    color: #fff;
+    padding: 10px 10px;
+    width: 20%;
+    border:1px solid #222;
+    width: 100%;
+    text-align: center;
+}
+
+#avoidmeat input{
+  background-color: blue;
+
+  display: inline !important;
+  margin: 1rem;
+}
+#legend span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 5px;
+}

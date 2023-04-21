@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        
+        body {
+            padding-top: 60px; /* Adjust the value to match the height of your navbar */
+        }
+        
+        /* serach icon */
+        .field1{
+            position: relative;
+            width: 200px;
+        }
+        
+        .field2{
+            width: 400px;
+        }
+        
+        .field2 .input-group{
+            align-items: center;
+        }
+        
+        .field2 .input-group{
+            align-items: center;
+        }
+        
+        .image{
+            position: absolute;
+            right: 35px;
+            top: 39%;
+            transform: translateY(-50%);
+            width: 18px;
+        }
+        
+        .input{
+            background-color: #F2F2F2;
+            border: none;
+            padding: 9px 14px;
+            font-size: 15px;
+            width: 168px;
+            border-radius: 22px !important;
+        }
+        
+        .box{
+            display: flex;
+        }
+        
+        .import{
+            border-bottom: transparent;
+        }
+        
+        /* table view */
+        #feedbackTable thead {
+            display: table-header-group;
+        }
+    </style>
+</head>
+<body>
+    <!--#include virtual="navbar.html" -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $('#navbar').load('admin_navbar.html');
+        });
+    </script>
+    <div id="navbar"></div>
+    <!-- Operator feedback and suggest -->
+    <!-- serach box and icon -->
+    
+    <div class="container mt-5">
+        <div class="row justify-content-between">
+            <div class="col-md-3 mr-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search here" id="searchInput">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group mb-3">
+                    <label for="search" class="input-group-text me-2">Search By date</label>
+                    <input type="date" class="form-control" id="dateFilter" placeholder="Server" aria-label="Server">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Admin view table of operator suggestion -->
+    <div class="container">
+        
+        <table class="table table-hover" id="feedbackTable">
+            
+            <thead> 
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>       
+                    <th>Date</th>
+                    <th>Suggestion</th>
+                    <th>Taste</th>
+                    <th>Cleaning</th>
+                    <th>Price</th>
+                    <th>Restaurant information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1111</td>
+                    <td>Steve</td>
+                    <td>01/01/1978</td>
+                    <td>Sweet potatoes are not good</td>
+                    <td>Good</td>
+                    <td>Good</td>
+                    <td>Bad</td>
+                    <td>Kaung Thant , Address: Q5QR+727, ဗိုလ်မင်းရောင်လမ်း, Yangon</td>
+                </tr>
+                
+                <tr>
+                    <td>2</td>
+                    <td>Steffie</td>
+                    <td>01/01/1978</td>
+                    <td>Stuffed Sweet potatoes are not good</td>
+                    <td>Good</td>
+                    <td>Good</td>
+                    <td>Bad</td>
+                    <td>Kaung Thant , Address: Q5QR+727, ဗိုလ်မင်းရောင်လမ်း, Yangon</td>
+                </tr>
+                
+                <tr>
+                    <td>3</td>
+                    <td>Stan</td>
+                    <td>01/01/1994</td>
+                    <td>Stuffed sweet potatoes. </td>
+                    <td>Good</td>
+                    <td>Good</td>
+                    <td>Bad</td>
+                    <td>Kaung Thant , Address: Q5QR+727, ဗိုလ်မင်းရောင်လမ်း, Yangon</td>
+                </tr>
+                
+                <tr>
+                    <td>4</td>
+                    <td>Austin</td>
+                    <td>04/22/2023</td>
+                    <td>Stuffed sweet potatoes. Sweet potatoes are not good</td>
+                    <td>Good</td>
+                    <td>Good</td>
+                    <td>Bad</td>
+                    <td>Kaung Thant , Address: Q5QR+727, ဗိုလ်မင်းရောင်လမ်း, Yangon</td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
+    <script>
+      $(document).ready(function() {
+  // Get the input field and table
+  var input = $("#searchInput");
+  var dateInput = $("#dateFilter");
+  var table = $("#feedbackTable");
+
+  // Save the table header row
+  var headerRow = table.find("thead tr");
+
+  // Add an event listener to the input field that triggers on each keyup
+  input.on("keyup", function() {
+    // Get the value of the input field
+    var value = $(this).val().toLowerCase();
+
+    // Filter the table rows that do not contain the search value
+    table.find("tbody tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().includes(value));
+    });
+  });
+
+  // Add an event listener to the date input field that triggers on change
+  dateInput.on("change", function() {
+    // Get the selected date from the input field
+    var selectedDate = new Date($(this).val());
+
+    // Check if the date input field has a value or not
+    if ($(this).val() === "") {
+      // Show all rows in the table
+      table.find("tbody tr").show();
+    } else {
+      // Filter the table rows that do not match the selected date
+      table.find("tbody tr").filter(function() {
+        var rowDateStr = $(this).find("td:eq(2)").text();
+        var rowDate = new Date(rowDateStr);
+        var match = rowDate.toDateString() == selectedDate.toDateString();
+        $(this).toggle(match);
+      });
+    }
+  });
+
+  // Show the table header
+  table.find("thead").show();
+});
+
+
+    </script>
+    
+</body>
+</html>

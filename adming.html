@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSMIS-Catering Service Management Information System</title>
+
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-DYj+89rHxRmlJPrV7+u8lL92Z7a9fOq3zJ0/kj+whOy7xoh+e3cHY3bkg8mBrZJ19MzHtmRnA7gW8YtJTrBkxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-lX0iWsLJ7eGcJPMOy7syYYC/qxwcpwih36oShQOk/M7AdPP9L1sZ7wnhBYlyzKj+FVx8Wzg/mwvLaj33YtHjLg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+   
+
+    
+
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="image/DAT.jpeg" alt="Logo" style="border-radius: 40%;"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="far fa-list-alt"></i> Import Data <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="showFileImport()">Employee Import</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#menuImportModal">Menu Import</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#holidayImportModal">Holiday Import</a></li>
+                        </ul>
+                    </li>  
+                    <li><a href="listpage.html"><i class="far fa-list-alt"></i> List</a></li>
+                    <li><a href="#"><i class="far fa-list-alt"></i> Menu</a></li>
+                    <li><a href="#"><i class="fas fa-user-cog"></i> Setting</a></li>
+                    <li><a href="homepage.html"><i class="fas fa-user"></i> Log Out </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="modal fade" id="fileImportModal" tabindex="-1" role="dialog" aria-labelledby="fileImportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="fileImportModalLabel">Employee Import</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline">
+                      <div class="form-group">
+                        <input type="file" id="file" name="file" class="form-control-file mx-2">
+                      </div>
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fileImportModal">Import</button>  
+                    </form>
+                  </div>                  
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="menuImportModal" tabindex="-1" role="dialog" aria-labelledby="menuImportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="menuImportModalLabel">Menu Import</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline">
+                        <div class="form-group">
+                          <input type="file" id="file" name="file" class="form-control-file mx-2">
+                        </div>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fileImportModal">Import</button>  
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="holidayImportModal" tabindex="-1" role="dialog" aria-labelledby="menuImportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="menuImportModalLabel">Holiday Import</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline">
+                        <div class="form-group">
+                          <input type="file" id="file" name="file" class="form-control-file mx-2">
+                        </div>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fileImportModal">Import</button>  
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showFileImport() {
+    $('#fileImportModal').modal('show');
+    }
+    </script>
+    
+      
+    
+    <!-- Link to Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+        
+</body>
+</html>    

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSMIS-Catering Service Management Information System</title>
+
+  <!-- Link to Bootstrap CSS -->
+  
+
+
+  <link rel="stylesheet" href="calendar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-DYj+89rHxRmlJPrV7+u8lL92Z7a9fOq3zJ0/kj+whOy7xoh+e3cHY3bkg8mBrZJ19MzHtmRnA7gW8YtJTrBkxw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    integrity="sha512-lX0iWsLJ7eGcJPMOy7syYYC/qxwcpwih36oShQOk/M7AdPP9L1sZ7wnhBYlyzKj+FVx8Wzg/mwvLaj33YtHjLg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+  
+    <!-- JavaScript -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.js'></script>
+    
+  
+</head>
+
+<body>
+     <!--#include virtual="navbar.html" -->
+     
+     <script>
+         $(function(){
+             $('#navbar').load('admin_navbar.html');
+         });
+     </script>
+     
+     <div id="navbar"></div>
+  <form>
+    <div class="avoidbox">
+      <fieldset id="avoidmeat">
+        <legend>Choose your avoid meat</legend>
+  
+        <input type="checkbox" name="check" id="checkBox1" class="checkbox"><label for="checkBox1">Chicken</label>
+  
+        <input type="checkbox" name="check" id="checkBox2" class="checkbox"><label for="checkBox2">Pork</label>
+
+        <input type="checkbox" name="check" id="checkBox3" class="checkbox"><label for="checkBox3">Fish</label>
+  
+        <input type="checkbox" name="check" id="checkBox3" class="checkbox"><label for="checkBox3">Goat</label>
+  
+        <input type="checkbox" name="check" id="checkBox3" class="checkbox"><label for="checkBox3">Beef</label>
+  
+        <input type="checkbox" name="check" id="checkBox3" class="checkbox"><label for="checkBox3">Seafood</label>
+  
+      </fieldset>
+    </div>
+    
+  </div>
+  <div id='calendar'></div>
+  <div id="legend">
+    <span class="legend-item weekend"></span>Weekend
+    <span class="legend-item selected"></span>Selected Date
+    <span class="legend-item comparison"></span>Registration Date
+    <span class="legend-item lostDate"></span>Registered But Not Eaten
+  </div>
+  <div id="legend">
+    <span class="legend-item"></span> Registration Cost = 4000 Kyats
+    <span class="legend-item"></span> Actual Cost = 3000 Kyats
+    <span class="legend-item"></span> Lost Cost = -1000 Kyats
+  </div>
+  <script>
+    // Create an array to store the selected dates
+    var selectedDates = [];
+
+    // Create an array of dates to compare against
+    var comparisonDates = ['2023-04-12', '2023-04-13', '2023-04-17'];
+
+    var lostDates = ['2023-04-18'];
+    // Initialize the calendar
+    $('#calendar').fullCalendar({
+      // Set the height of the calendar
+      height: 500,
+
+      // Use the dayRender callback to add red background color to weekend days
+      dayRender: function (date, cell) {
+        var day = date.day();
+        if (day === 0 || day === 6) {
+          cell.css('background-color', '#808B96 ');
+          cell.addClass('disabled');
+          cell.data('selectable', false);
+        }
+        // Check if the date is in the comparisonDates array
+        if (comparisonDates.indexOf(date.format('YYYY-MM-DD')) !== -1) {
+          // Add green background color to the cell and mark it as selected
+          cell.css('background-color', '#7DCEA0');
+          cell.addClass('selected');
+          // Add the date to the selectedDates array
+          selectedDates.push(date.format('YYYY-MM-DD'));
+        }
+        if (lostDates.indexOf(date.format('YYYY-MM-DD')) !== -1) {
+          cell.css('background-color', '#E74C3C');
+          cell.addClass('selected');
+        }
+      }
+    });
+
+    // Handle click event on date cells
+    $('#calendar').on('click', '.fc-day', function () {
+      // Get the date of the clicked cell
+      var date = $(this).attr('data-date');
+      date = moment(date).format('YYYY-MM-DD');
+      // Check if the date is already selected
+      if ($(this).hasClass('selected')) {
+        // Unselect the date
+        $(this).removeClass('selected');
+        // Remove the date from the selected dates array
+        var index = selectedDates.indexOf(date);
+        if (index !== -1) {
+          selectedDates.splice(index, 1);
+        }
+      } else {
+        // Check if the date already exists in the selected dates array
+        var index = selectedDates.indexOf(date);
+        if (index === -1) {
+          // Select the date
+          $(this).addClass('selected');
+          // Add the date to the selected dates array
+          selectedDates.push(date);
+        } else {
+          // Unselect the date
+          $(this).removeClass('selected');
+          // Remove the date from the selected dates array
+          selectedDates.splice(index, 1);
+        }
+      }
+      // Log the current selection for debugging purposes
+      console.log(selectedDates);
+    });
+  </script>
+
+
+
+
+
+
+  <!-- Link to Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

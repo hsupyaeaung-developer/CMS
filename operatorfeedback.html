@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="op_feedback.css">
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $('#navbar').load('operator_navbar.html');
+        });
+    </script>
+    
+    <div id="navbar"></div>
+    <div class="container">
+        <header class="header">
+          <h1 id="title" class="text-center">Restaurant Feedback Form</h1>
+          <p id="description" class="description text-center">
+            Kaung Myat Hein Restaurant
+            24(D),Narnataw Road,Kamayut Township,Yangon.
+            095008683
+          </p>
+        </header>
+        <form id="survey-form">
+          <div class="form-group">
+            <label id="name-label" for="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="form-control"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th scope="col">Excellent</th>
+                    <th scope="col">Good</th>
+                    <th scope="col">Average</th>
+                    <th scope="col">Poor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                        Quality of Food
+                    </th>
+                    <td scope="row">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radio1" value="excellent" id="flexCheckDefault">
+                            
+                          </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radio1" value="good" id="flexCheckDefault">
+                            
+                          </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radio1" value="average" id="flexCheckDefault">
+                            
+                          </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radio1" value="poor" id="flexCheckDefault">
+                           
+                          </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                        Cleaness of Restaurant
+                    </th>
+                    <td scope="row">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radio2" value="excellent" id="flexCheckDefault">
+                            
+                          </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radio2" value="good" id="flexCheckDefault">
+                            
+                          </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radio2" value="average" id="flexCheckDefault">
+                            
+                          </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radio2" value="poor" id="flexCheckDefault">
+                           
+                          </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      Value Of Money
+                    </th>
+                    <td scope="row">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radio3" value="excellent" id="flexCheckDefault">
+                            
+                          </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radio3" value="good" id="flexCheckDefault">
+                            
+                          </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radio3" value="average" id="flexCheckDefault">
+                            
+                          </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radio3"  value="poor" id="flexCheckDefault">
+                           
+                          </div>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+                </table>
+          </div>
+          
+          
+      
+          <div class="form-group">
+            <p>Any comments or suggestions?</p>
+            <textarea
+              id="comments"
+              class="input-textarea"
+              name="comment"
+              placeholder="Enter your comment here..."
+            ></textarea>
+          </div>
+      
+          <div class="form-group">
+            <button type="submit" id="submit" class="submit-button">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+      
+</body>
+</html>

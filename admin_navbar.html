@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Admin Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-DYj+89rHxRmlJPrV7+u8lL92Z7a9fOq3zJ0/kj+whOy7xoh+e3cHY3bkg8mBrZJ19MzHtmRnA7gW8YtJTrBkxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3-beta2/css/all.min.css" integrity="sha512-lX0iWsLJ7eGcJPMOy7syYYC/qxwcpwih36oShQOk/M7AdPP9L1sZ7wnhBYlyzKj+FVx8Wzg/mwvLaj33YtHjLg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+           
+        }
+        
+        body {
+            padding-top: 60px; /* Adjust the value to match the height of your navbar */
+            /* hide content when navbar is sticky */
+        }
+        
+        .navbar-brand img {
+            width: 50px;
+            height: 45px;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color:black;
+        }
+        
+        .annouce{
+            width: 250px;
+            height: 200px;
+        }
+        
+        .annouce-foot{
+            border:none !important;
+        }
+        
+        .emailview{
+            width:266px;
+            transform: translate(-700px);
+            transition: all 0.5s;
+            /* visibility: hidden; */
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info p-2 sticky-top" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="admindashboard.html"><img src="DAT.jpeg" alt="Logo" style="border-radius: 10%;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto ">
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="#"><i class="far fa-list-alt"></i> Lunch Register </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="far fa-list-alt"></i> Import Data&View<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#employeefileImportModal">Employee Import</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#menuImportModal">Menu Import</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#holidayImportModal">Holiday Import</a></li>
+                            <li><a class="dropdown-item" href="listview.html">List View</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="far fa-list-alt"></i> Invoice <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="createinvoice.html">Create Invoice</a></li>
+                            <li><a class="dropdown-item" href="weeklyinvoice.html">Weekly Invoice</a></li>
+                            <li><a class="dropdown-item" href="monthlyinvoice.html">Monthly Invoice</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-cog"></i> Admin Setup <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="adminsetting.html">Setting</a></li>
+                            <li><a class="dropdown-item" href="adminannoucement.html" data-bs-toggle="modal" data-bs-target="#announImportModal">Announcement</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="homepage.html"><i class="fas fa-user"></i> Log Out </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="modal fade" id="employeefileImportModal" tabindex="-1" aria-labelledby="employeefileImportModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="employeefileImportModalLabel">Employee Import</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline">
+                        <div class="form-group my-2">
+                            <label for="file" class="form-label mr-2">Select file to import:</label>
+                            <input type="file" id="file" name="file" class="form-control-file">
+                        </div>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Import</button>  
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="modal fade" id="menuImportModal" tabindex="-1" aria-labelledby="menuImportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="menuImportModalLabel">Menu Import</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline">
+                        <div class="form-group my-2">
+                            <label for="file" class="form-label mr-2">Select file to import:</label>
+                            <input type="file" id="file" name="file" class="form-control-file">
+                        </div>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Import</button>  
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="modal fade" id="holidayImportModal" tabindex="-1" aria-labelledby="holidayImportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="holidayImportModalLabel">Holiday Import</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline">
+                        <div class="form-group my-2">
+                            <label for="file" class="form-label mr-2">Select file to import:</label>
+                            <input type="file" id="file" name="file" class="form-control-file">
+                        </div>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Import</button>  
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="announImportModal"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="annoucementLabel">
+        <div class="modal-dialog">
+            <div class="modal-content annouce-body">
+                
+                <div class="modal-body">
+                    <textarea class="" style="width:450px; height: 300px;" placeholder="Announce here..."></textarea>
+                </div>
+                <div class="modal-footer annouce-foot">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success" onclick="announce()">Announce</button>
+                </div>
+                
+                <div class="emailview">
+                    <p class="text-danger">Are you sure want to send by email?</p>
+                    <a href="#" class="btn btn-sm btn-success mb-2" data-bs-dismiss="modal" onclick="disapper()">OK</a>
+                    <a href="#" class="btn btn-sm btn-danger mb-2" data-bs-dismiss="modal" onclick="disapper()">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function announce() {
+            // Get the text area value
+            let announcement = document.querySelector('#annoucement textarea').value;
+            
+            // Do something with the announcement, for example:
+            console.log('Announcement:', announcement);
+            
+            // Show the email view
+            let emailview = document.querySelector('.emailview');
+            emailview.style.transform = "translate(100px)";
+        }
+        
+        function disapper(){
+            let emailview = document.querySelector('.emailview');
+            emailview.style.display = "none";
+            emailview.style.transform = "none";
+            clearForm(); // clear the form after hiding the email view
+        }
+        
+        function clearForm() {
+            let textarea = document.querySelector('#annoucement textarea');
+            textarea.value = "";
+        }
+        
+    </script>
+    
+    
+    
+</body>
+</html>

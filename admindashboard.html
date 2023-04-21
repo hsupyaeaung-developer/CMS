@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    
+    <link href="admindashboard.css" rel="stylesheet">
+    
+    <!-- Link to Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    
+    
+</head>
+
+<body>
+    
+    <!--#include virtual="navbar.html" -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $('#navbar').load('admin_navbar.html');
+        });
+    </script>
+    
+    <div id="navbar"></div>
+    <main class="main-container">
+        
+        
+        <div class="main-cards">
+            
+            <div class="card">
+                <div class="card-inner">
+                    <h3>Total Registered User</h3>
+                    <span class="material-icons-outlined">groups</span>
+                </div>
+                <h1>249</h1>
+            </div>
+            
+            <div class="card">
+                <div class="card-inner">
+                    <h3>UnRegistered Eaten List</h3>
+                    <span class="material-icons-outlined">list_alt</span>
+                </div>
+                <h1>50</h1>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <h3>Registered Eaten List</h3>
+                    <span class="material-icons-outlined">list_alt</span>
+                </div>
+                <h1>200</h1>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <h3>Registered Uneaten List</h3>
+                    <span class="material-icons-outlined">
+                        list_alt
+                    </span>
+                </div>
+                <h1>100</h1>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <h3>Total Weekly Orders</h3>
+                    <span class="material-icons-outlined">inventory_2</span>
+                </div>
+                <h1>350</h1>
+            </div>
+            
+            <div class="card">
+                <div class="card-inner">
+                    <h3>Total Costs by DAT This week</h3>
+                    <span class="material-icons-outlined">attach_money</span>
+                </div>
+                <h1>200000</h1>
+            </div>
+            
+            
+            <div class="card">
+                <div class="card-inner">
+                    <h3>Total Costs by Employee This Week</h3>
+                    <span class="material-icons-outlined">attach_money</span>
+                </div>
+                <h1>100000</h1>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <h3>Email-On Users</h3>
+                    <span class="material-icons-outlined">notification_important</span>
+                </div>
+                <h1>100</h1>
+            </div>
+            
+        </div>
+        
+        <div class="charts">
+            
+            <div class="charts-card">
+                <h2 class="chart-title">Weekly Lunch Reports</h2>
+                <div id="bar-chart"></div>
+            </div>
+            
+            <div class="charts-card">
+                <h2 class="chart-title">Weekly Lunch Reports</h2>
+                <div id="donut-chart"></div>
+            </div>
+            <div class="charts-card">
+                <h2 class="chart-title">Weekly Lunch Costing Reports</h2>
+                <canvas id="myChart"></canvas>
+                <input type="date" onchange="filterDate()" id="startdate" value="2021-08-25">
+                <input type="date" onchange="filterDate()" id="enddate" value="2021-08-31">
+            </div>
+            
+        </div>
+    </main>
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admindashboard.js"></script>
+    
+</body>
+
+</html>

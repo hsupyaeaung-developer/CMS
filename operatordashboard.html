@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Operator Dashboard</title>
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="admindashboard.css">
+ 
+
+  <!-- Link to Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+
+<body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $('#navbar').load('operator_navbar.html');
+        });
+    </script>
+    <div id="navbar"></div>
+  <div class="main-cards">
+
+    <div class="card">
+      <div class="card-inner">
+        <h3>Registration Costs</h3>
+        <span class="material-icons-outlined">attach_money</span>
+      </div>
+      <h3>20000</h3>
+    </div>
+
+
+
+    <div class="card">
+      <div class="card-inner">
+        <h3>Actual Cost deducted from Salary</h3>
+        <span class="material-icons-outlined">attach_money</span>
+      </div>
+      <h3>5000</h3>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <h3>Lost Cost</h3>
+        <span class="material-icons-outlined">attach_money</span>
+      </div>
+      <h3>2000</h3>
+    </div>
+
+
+  </div>
+  <div class="charts">
+
+    <div class="charts-card" >
+    
+      <div class="fade-in-image" style="display: flex;justify-content: right;">
+        <img src="menu_img.jpg" />
+      </div>
+    </div>
+
+    <div class="charts-card" style="display: flex;justify-content: center;">
+      <div class="Box-Calender">
+        <div id="month">Preview</div>
+        <table class="calender">
+          <tr>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+            <th>Sun</th>
+          </tr>
+          
+          <tr>
+            <td></td>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+          </tr>
+          
+          <tr>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+          </tr>
+          
+          <tr>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+          </tr>
+          
+          <tr>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+          </tr>
+          
+          <tr>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+          </tr>
+        </table>
+        <a href="./cateringregistration.html" style="background-color: #0077c2; color: #fff; border-radius: 5px; padding: 10px 20px; border: none; font-size: 18px; font-weight: bold; cursor: pointer; box-shadow: 0px 2px 5px #888888; transition: background-color 0.3s; text-decoration: none;">Go to full Calender</a>
+
+
+
+        </div>
+    </div>
+   
+    
+  </div>
+
+
+
+  <!-- ApexCharts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/scripts.js"></script>
+
+
+
+
+
+</body>
+
+</html>

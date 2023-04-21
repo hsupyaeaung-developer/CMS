@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    
+    
+    <style>
+        .section-header {
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-header::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 60px;
+            height: 5px;
+            background: #f82249;
+            bottom: 0;
+            left: calc(50% - 25px);
+        }
+        
+        .section-header h2 {
+            font-size: 36px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .section-header p {
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            font-size: 18px;
+            font-weight: 500;
+            color: #9195a2;
+        }
+        
+        .section-with-bg {
+            background-color: #f6f7fd;
+        }
+        
+        #contact {
+            padding: 60px 0;
+        }
+        
+        #contact .contact-info {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        #contact .contact-info i {
+            font-size: 48px;
+            display: inline-block;
+            margin-bottom: 10px;
+            color: #f82249;
+        }
+        
+        #contact .contact-info address,
+        #contact .contact-info p {
+            margin-bottom: 0;
+            color: #112363;
+        }
+        
+        #contact .contact-info h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #112363;
+        }
+        
+        #contact .contact-info a {
+            color: #4869df;
+        }
+        
+        #contact .contact-info a:hover {
+            color: #f82249;
+        }
+        
+        #contact .contact-address,
+        #contact .contact-phone,
+        #contact .contact-email {
+            margin-bottom: 20px;
+        }
+        
+        #contact .form #sendmessage {
+            color: #f82249;
+            border: 1px solid #f82249;
+            display: none;
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        #contact .form #errormessage {
+            color: red;
+            display: none;
+            border: 1px solid red;
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        #contact .form #sendmessage.show,
+        #contact .form #errormessage.show,
+        #contact .form .show {
+            display: block;
+        }
+        
+        #contact .form .validation {
+            color: red;
+            display: none;
+            margin: 0 0 20px;
+            font-weight: 400;
+            font-size: 13px;
+        }
+        
+        #contact .form input,
+        #contact .form textarea {
+            padding: 10px 14px;
+            border-radius: 0;
+            box-shadow: none;
+            font-size: 15px;
+        }
+        
+        #contact .form button[type="submit"] {
+            background: #f82249;
+            border: 0;
+            padding: 10px 40px;
+            color: #fff;
+            transition: 0.4s;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        
+        #contact .form button[type="submit"]:hover {
+            background: #e0072f;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    
+    <!--#include virtual="navbar.html" -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $('#navbar').load('homepage.html');
+        });
+    </script>
+    
+    <div id="navbar"></div>
+    
+    
+    
+    <section id="contact" class="section-bg wow fadeInUp">
+        
+        
+        <div class="container">
+            
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing.</p>
+            </div>
+            
+            <div class="row contact-info">
+                
+                <div class="col-md-4">
+                    <div class="contact-address">
+                        <i class="ion-ios-location-outline"></i>
+                        <h3>Address</h3>
+                        <address>A108 Adam Street, Nx 123456, XYZ</address>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="contact-phone">
+                        <i class="ion-ios-telephone-outline"></i>
+                        <h3>Phone Number</h3>
+                        <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="contact-email">
+                        <i class="ion-ios-email-outline"></i>
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@example.com">info@example.com</a></p>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="container mt-3">
+                <div class="form">
+                    <div id="sendmessage">Your message has been sent. Thank you!</div>
+                    <div id="errormessage"></div>
+                    <form action="" method="post" role="form" class="contactForm">
+                        <div class="mb-3 row g-2">
+                            <div class="col-md-6">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                <div class="form-text validation"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                <div class="form-text validation"></div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                            <div class="form-text validation"></div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                            <div class="form-text validation"></div>
+                        </div>
+                        <div class="text-center"><button type="submit">Send Message</button></div>
+                    </form>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+</body>
+</html>
